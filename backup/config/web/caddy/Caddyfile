@@ -1,0 +1,29 @@
+localhost:8080
+
+tls off
+
+fastcgi /index.php 127.0.0.1:9000 {
+
+    ext .php 
+}
+
+rewrite {
+
+    r ^(.+)$
+    to /index.php/{1}
+}
+
+rewrite {
+
+	r (composer.json|README.md)
+	status  403
+}
+
+errors {
+
+    log error.log
+
+    403 public/errors/403.html
+    404 public/errors/404.html
+    500 public/errors/500.html
+}

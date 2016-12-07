@@ -1,0 +1,16 @@
+DirectoryIndex index.php
+
+<FilesMatch "(bootstrap.php|composer.json|composer.lock|console|README.md)$">
+	order allow,deny
+ 	deny from all
+</FilesMatch>
+
+## To use error display pages 
+# ErrorDocument 403 /<ROOT_FOLDER>/public/errors/403.html
+# ErrorDocument 404 /<ROOT_FOLDER>/public/errors/404.html
+# ErrorDocument 500 /<ROOT_FOLDER>/public/errors/500.html
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule . index.php [L]
+RewriteRule ^(app|backup|lib|vendor|public) - [F,L]
