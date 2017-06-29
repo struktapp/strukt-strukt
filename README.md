@@ -21,7 +21,7 @@ Change directory into your strukt project then list commands:
 Next step create an application:
 
 ```sh
-./console generate:application payroll
+./console generate:app payroll
 ```
 
 The file structure generated should look like the tree structure below:

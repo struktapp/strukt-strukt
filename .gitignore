@@ -1,0 +1,6 @@
+public/
+app/
+cfg/
+lib/
+composer.lock
+vendor/
