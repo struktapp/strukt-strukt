@@ -27,7 +27,7 @@
         "post-create-project-cmd": [
 
             "composer exec static",
-            "composer exec config"
+            "composer exec config-standard"
         ]
     }
 }
