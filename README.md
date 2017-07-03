@@ -77,7 +77,7 @@ When an application or module is created they are loaded by running the command 
 
 The above command will create a `App/Loader.php` in the `lib/` folder at the root of your project. This file should NEVER be edited because everything will be overwritten once the above command is run. 
 
-### Important things to note
+### Things to note
 
 The simplest way to run the project is via the php in-built server:
 
