@@ -13,7 +13,7 @@
     ],
     "require": {
 
-        "php": ">=5.6.2",
+        "php": ">=7.0",
         "strukt/framework": "dev-master"
     },
     "minimum-stability":"dev",
