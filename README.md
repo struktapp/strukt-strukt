@@ -85,14 +85,7 @@ The simplest way to run the project is via the php in-built server:
 php -S localhost:8080 index.php
 ```
 
-**IMPORTANT**: You may encounter problems with shortening urls: i.e for example using `http://localhost/strukt/test` in Apache with `.htaccess` strukt will interpret the url as `/strukt/test` but in the php in-built server as `/test`. You may use the flags below to enable and disable shortening to easily overcome this issue:
-
-```php
-$r = \Strukt\Framework\Registry::getInstance();
-$r->set("shorten_url", false);
-// $r->set("shorten_url", true); 
-```
-
-**IMPORTANT**: The folder `tpl/` in the root of the project contains `sgf/` folder that has class template files used to generate the application its modules and migrations. Ensure to not change it until you've understood [strukt-generator](https://github.com/pitsolu/strukt-generator)
+**IMPORTANT**: The folder `tpl/` in the root of the project contains `sgf/` folder that has class template files used to generate the application its modules and migrations. Ensure to not change it until you've understood 
+[strukt-generator](https://github.com/pitsolu/strukt-generator)
 
 Have a good one!
