@@ -3,10 +3,34 @@
 
 require "bootstrap.php";
 
-Strukt\Console::useRootDir(__DIR__);
-Strukt\Console::useAppDir("app");
-// Strukt\Console::useAppDir("fixtures");
-Strukt\Console::useStaticDir("public/static");
+try{
+	
+	if(!class_exists("App\Loader"))
+		throw new Exception("App Loader does not exixst!");
+	
+	$moduleList = App\Loader::getApp()->getModuleList();	
+}
+catch(\Exception $e){
 
-$console = new Strukt\Console();
+	$moduleList = null;
+}
+
+// print_r($moduleList);exit;
+
+$configs = array(
+
+	// "labelStruktSect"=>true, 
+	// "loadNativeCmd"=>false,
+	// "appName"=>"Strukt Console",
+	"moduleList"=>$moduleList,
+	"appDir"=>"app",
+	"rootDir"=>__DIR__
+);
+
+// Strukt\Console::useRootDir(__DIR__);
+// Strukt\Console::useAppDir("app");
+// Strukt\Console::useAppDir("fixtures");
+// Strukt\Console::useStaticDir("public/static");
+
+$console = new Strukt\Console($configs);
 exit($console->run($_SERVER["argv"]));

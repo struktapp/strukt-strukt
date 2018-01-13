@@ -6,28 +6,19 @@ use Kambo\Http\Message\Response;
 
 use Strukt\Fs;
 use Strukt\Event\Single;
+use Strukt\Core\Registry;
 
-error_reporting(E_ALL & ~E_STRICT & ~E_NOTICE & ~E_WARNING & ~E_DEPRECATED);
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT & ~E_WARNING);
 
 $appCfg = parse_ini_file("cfg/app.ini");
 
 $loader = require 'vendor/autoload.php';
-$loader->add($appCfg["app-name"], __DIR__.'/app/src');
 $loader->add('App', __DIR__.'/lib/');
-
-//
-
-// error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT & ~E_WARNING);
-
-// $appCfg = parse_ini_file("cfg/app.ini");
-
-// $loader = require 'vendor/autoload.php';
-// $loader->add('App', __DIR__.'/lib/');
 // $loader->add('Strukt', __DIR__.'/../strukt-commons/src/');
 // $loader->add('Strukt', __DIR__.'/../strukt-router/src/');
-// $loader->add($appCfg["app-name"], __DIR__.'/app/src/');
+$loader->add($appCfg["app-name"], __DIR__.'/app/src/');
 
-$registry = \Strukt\Core\Registry::getInstance();
+$registry = Registry::getInstance();
 $registry->set("_dir", __DIR__);
 $registry->set("_staticDir", __DIR__."/public/static");
 
