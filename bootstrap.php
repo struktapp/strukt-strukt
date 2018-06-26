@@ -10,8 +10,6 @@ $appCfg = parse_ini_file("cfg/app.ini");
 
 $loader = require 'vendor/autoload.php';
 $loader->add('App', __DIR__.'/lib/');
-// $loader->add('Strukt', __DIR__.'/../strukt-commons/src/');
-// $loader->add('Strukt', __DIR__.'/../strukt-router/src/');
 $loader->add($appCfg["app-name"], __DIR__.'/app/src/');
 
 $servReq = Zend\Diactoros\ServerRequestFactory::fromGlobals(
@@ -22,13 +20,6 @@ $servReq = Zend\Diactoros\ServerRequestFactory::fromGlobals(
 	    $_COOKIE,
 	    $_FILES
 	);
-
-$json = file_get_contents("php://input");
-$body = json_decode(str_replace("'", '"', trim($json)), 1);
-foreach($body as $key=>$val)
-	$servReq = $servReq->withAttribute($key, $val);
-
-$servReq = $servReq->withParsedBody($body);
 
 $registry = Registry::getInstance();
 $registry->set("_dir", __DIR__);
