@@ -5,3 +5,4 @@ lib/
 composer.lock
 vendor/
 php_errors.log
+bin/

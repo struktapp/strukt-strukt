@@ -45,6 +45,14 @@ app/
 
 There is a default module i.e `AuthModule` when you generate an application. Folders generate in a module can be changed in `cfg/module.ini` this also indicates part of alias used to access classes/objects. You'll also find a config file `cfg/app.ini` that holds the active applications name.
 
+When an application or module is created/generated they are loaded by running the command below, otherwise strukt won't detect them:
+
+```sh
+./console generate:loader
+```
+
+The above command will create a `App/Loader.php` in the `lib/` folder at the root of your project. This file should NEVER be edited because everything will be overwritten once the above command is run. 
+
 ### Generate a module
 
 Command syntax for generating a module:
@@ -69,15 +77,11 @@ app/
         └── HumanResourceModule
 ```
 
-When an application or module is created they are loaded by running the command below, otherwise strukt won't see them:
-
-```sh
-./console generate:loader
-```
-
-The above command will create a `App/Loader.php` in the `lib/` folder at the root of your project. This file should NEVER be edited because everything will be overwritten once the above command is run. 
+Remember to run the `generate:loader` command to load the module.
 
 ### Things to note
+
+The `generate:router` and `generate:module` commands will not appear on cli console until you run `generate:app` and `generate:loader` commands first.
 
 The simplest way to run the project is via the php in-built server:
 

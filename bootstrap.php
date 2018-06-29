@@ -14,12 +14,14 @@ $loader->add($appCfg["app-name"], __DIR__.'/app/src/');
 
 $servReq = Zend\Diactoros\ServerRequestFactory::fromGlobals(
 
-	    $_SERVER,
-	    $_GET,
-	    $_POST,
-	    $_COOKIE,
-	    $_FILES
-	);
+    $_SERVER,
+    $_GET,
+    $_POST,
+    $_COOKIE,
+    $_FILES
+);
+
+$servReq = $servReq->withParsedBody(new Zend\Diactoros\PhpInputStream());
 
 $registry = Registry::getInstance();
 $registry->set("_dir", __DIR__);
