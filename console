@@ -33,4 +33,5 @@ $configs = array(
 // Strukt\Console::useStaticDir("public/static");
 
 $console = new Strukt\Console($configs);
+$console->add(new \App\Command\ShellExec());
 exit($console->run($_SERVER["argv"]));

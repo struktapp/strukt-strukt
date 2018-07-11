@@ -15,7 +15,8 @@
 
         "php": ">=7.0",
         "strukt/framework": "dev-master",
-        "zendframework/zend-diactoros": "^1.7"
+        "zendframework/zend-diactoros": "^1.7",
+        "psy/psysh": "^0.9.6"
     },
     "minimum-stability":"dev",
     "prefer-stable":true,

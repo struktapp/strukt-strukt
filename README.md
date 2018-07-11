@@ -79,6 +79,20 @@ app/
 
 Remember to run the `generate:loader` command to load the module.
 
+### Drop into shell
+
+`strukt-strukt` uses [psysh](https://github.com/bobthecow/psysh).
+
+```sh
+$ ./console shell:exec
+>>> ls
+Variables: $core, $registry
+>>> $core->get("au.ctr.User")->getAll()
+=> "AuthModule\Controller\User::getAll Not Yet Implemented!"
+>>> $registry->get("_dir")
+=> "/home/.../strukt-strukt"
+```
+
 ### Things to note
 
 The `generate:router` and `generate:module` commands will not appear on cli console until you run `generate:app` and `generate:loader` commands first.
