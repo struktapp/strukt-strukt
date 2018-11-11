@@ -4,6 +4,9 @@ use Strukt\Fs;
 use Strukt\Event\Event;
 use Strukt\Core\Registry;
 
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+
 error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT & ~E_WARNING);
 
 $appCfg = parse_ini_file("cfg/app.ini");
@@ -12,21 +15,25 @@ $loader = require 'vendor/autoload.php';
 $loader->add('App', __DIR__.'/lib/');
 $loader->add($appCfg["app-name"], __DIR__.'/app/src/');
 
-$servReq = Zend\Diactoros\ServerRequestFactory::fromGlobals(
+$request = Request::createFromGlobals();
 
-    $_SERVER,
+$request = new Request(
     $_GET,
     $_POST,
+    array(),
     $_COOKIE,
-    $_FILES
+    $_FILES,
+    $_SERVER
 );
-
-$servReq = $servReq->withParsedBody(new Zend\Diactoros\PhpInputStream());
 
 $registry = Registry::getInstance();
 $registry->set("_dir", __DIR__);
 $registry->set("_staticDir", __DIR__."/public/static");
-$registry->set("servReq", $servReq);
+$registry->set("request", $request);
+$registry->set("router.perms", array(
+
+    // "user_all"
+));
 
 foreach(["NotFound"=>404, 
 			"MethodNotFound"=>405,
@@ -40,9 +47,12 @@ foreach(["NotFound"=>404,
         if(in_array($code, array(403,404,405,500)))
             $body = Fs::cat(sprintf("public/errors/%d.html", $code));
 
-        $res = new Zend\Diactoros\Response();
-        $res = $res->withStatus($code);
-        $res->getBody()->write($body);
+        $res = new Response(
+
+            $body,
+            $code,
+            array('content-type' => 'text/html')
+        );
 
         return $res;
 	}));

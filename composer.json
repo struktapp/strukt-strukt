@@ -13,9 +13,8 @@
     ],
     "require": {
 
-        "php": ">=7.0",
+        "php": "^7.1.3",
         "strukt/framework": "dev-master",
-        "zendframework/zend-diactoros": "^1.7",
         "psy/psysh": "^0.9.6"
     },
     "minimum-stability":"dev",
@@ -29,7 +28,7 @@
         "post-create-project-cmd": [
 
             "composer exec static",
-            "composer exec config-standard"
+            "composer exec config-basic"
         ]
     }
 }
