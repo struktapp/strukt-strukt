@@ -4,9 +4,6 @@ use Strukt\Fs;
 use Strukt\Event\Event;
 use Strukt\Core\Registry;
 
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
-
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -33,30 +30,21 @@ $request = new Request(
     $_SERVER
 );
 
-/*create a log channel*/
-$logger = new Logger('strukt-logger');
-$logger->pushHandler(new StreamHandler('logs/app.log', Logger::INFO));
-
 $registry = Registry::getInstance();
 $registry->set("_dir", __DIR__);
 $registry->set("_staticDir", __DIR__."/public/static");
-$registry->set("logger", $logger); //logger
 $registry->set("appPath", "app/src/");
 $registry->set("request", $request);//Request
-$registry->set("router.perms", array(
-
-    // "user_all"
-));
 
 foreach(["NotFound"=>404, 
-            "MethodNotFound"=>405,
-            "Forbidden"=>403, 
-            "ServerError"=>500,
-            "Ok"=>200, 
-            "Redirected"=>302] as $msg=>$code)
-    $registry->set(sprintf("Response.%s", $msg), new Event(function() use($code){
+			"MethodNotFound"=>405,
+		 	"Forbidden"=>403, 
+		 	"ServerError"=>500,
+			"Ok"=>200, 
+			"Redirected"=>302] as $msg=>$code)
+	$registry->set(sprintf("Response.%s", $msg), new Event(function() use($code){
 
-        $body = "";
+		$body = "";
         if(in_array($code, array(403,404,405,500)))
             $body = Fs::cat(sprintf("public/errors/%d.html", $code));
 
@@ -68,4 +56,6 @@ foreach(["NotFound"=>404,
         );
 
         return $res;
-    }));
+	}));
+
+$app = App\Loader::getApp();

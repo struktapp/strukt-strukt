@@ -5,3 +5,6 @@ composer.lock
 vendor/
 php_errors.log
 bin/
+tasker.php
+tpl/
+lib/App/Loader.php

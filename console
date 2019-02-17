@@ -20,8 +20,8 @@ catch(\Exception $e){
 $configs = array(
 
 	// "labelStruktSect"=>true, 
-	// "loadNativeCmd"=>false,
-	// "appName"=>"Strukt Console",
+	// "loadNativeCmds"=>true,
+	"appName"=>"Strukt Console",
 	"moduleList"=>$moduleList,
 	"appDir"=>"app",
 	"rootDir"=>__DIR__
