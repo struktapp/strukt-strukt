@@ -3,7 +3,7 @@
           backupGlobals="false"
           processIsolation="false"
           backupStaticAttributes="false"
-          bootstrap="bootstrap-phpunit.php"
+          bootstrap="bootstrap.php"
           cacheTokens="false"
           colors="true"
           convertErrorsToExceptions="true"

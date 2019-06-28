@@ -14,9 +14,7 @@
     "require": {
 
         "php": "^7.1.3",
-        "strukt/framework": "dev-master",
-        "psy/psysh": "^0.9.6",
-        "monolog/monolog": "^1.24"
+        "strukt/framework": "dev-master"
     },
     "minimum-stability":"dev",
     "prefer-stable":true,
