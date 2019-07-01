@@ -1,5 +1,5 @@
-Strukt Project
-==============
+Strukt
+===
 
 [![Latest Stable Version](https://poser.pugx.org/strukt/strukt/v/stable)](https://packagist.org/packages/strukt/strukt)
 [![Total Downloads](https://poser.pugx.org/strukt/strukt/downloads)](https://packagist.org/packages/strukt/strukt)
@@ -89,19 +89,11 @@ $ ./console shell:exec
 Variables: $core, $registry
 >>> $core->get("au.ctr.User")->getAll()
 => "AuthModule\Controller\User::getAll Not Yet Implemented!"
->>> $registry->get("_dir")
-=> "/home/.../strukt-strukt"
 ```
 
 ### Things to note
 
 The `generate:router` and `generate:module` commands will not appear on cli console until you run `generate:app` and `generate:loader` commands first.
-
-The simplest way to run the project is via the php in-built server:
-
-```sh
-php -S localhost:8080 index.php
-```
 
 **IMPORTANT**: The folder `tpl/` in the root of the project contains `sgf/` folder that has class template files used to generate the application its modules and migrations. Ensure to not change it until you've understood 
 [strukt-generator](https://github.com/pitsolu/strukt-generator)

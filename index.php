@@ -44,6 +44,7 @@ $kernel->inject("app.dep.authetic", function(Session $session){
 
 $kernel->providers(array(
 
+	Strukt\Framework\Provider\Validator::class,
 	Strukt\Framework\Provider\Annotation::class,
 	Strukt\Framework\Provider\Router::class
 ));
@@ -58,4 +59,6 @@ $kernel->middlewares(array(
 	"router" => new Router,
 ));
 
-App\Loader::getApp($kernel)->runDebug();
+$loader = new App\Loader($kernel);
+$app = $loader->getApp(); 
+$app->runDebug();
