@@ -27,20 +27,22 @@ Listing console commands:
 The file structure generated should look as below:
 
 ```
-app/
+app
 └── src
     └── Payroll
-        └──  AuthModule
-             ├── Controller
-             │   └── User.php
-             ├── Form
-             │   └── User.php
-             ├── Model
-             │   └── User.php
-             ├── Router
-             │   ├── Auth.php
-             │   └── Index.php
-             └── PayrollAuthModule.php
+        ├── AuthModule
+        │   ├── Controller
+        │   │   └── User.php
+        │   ├── Form
+        │   │   └── User.php
+        │   ├── PayrollAuthModule.php
+        │   ├── Router
+        │   │   ├── Auth.php
+        │   │   └── Index.php
+        │   └── Tests
+        │       └── UserTest.php
+        └── User.php
+
 ```
 
 There is a default module i.e `AuthModule` when you generate an application. Folders generate in a module can be changed in `cfg/module.ini` this also indicates part of alias used to access classes/objects. You'll also find a config file `cfg/app.ini` that holds the active applications name.
@@ -89,11 +91,13 @@ $ ./console shell:exec
 Variables: $core, $registry
 >>> $core->get("au.ctr.User")->getAll()
 => "AuthModule\Controller\User::getAll Not Yet Implemented!"
+>>> $core->get("User")
+=> Payroll\User {#...
 ```
 
 ### Things to note
 
-The `generate:router` and `generate:module` commands will not appear on cli console until you run `generate:app` and `generate:loader` commands first.
+The `generate:router` and `generate:module` commands will not appear on cli console until you run `generate:app` and `generate:loader` commands firstly and respectively.
 
 **IMPORTANT**: The folder `tpl/` in the root of the project contains `sgf/` folder that has class template files used to generate the application its modules and migrations. Ensure to not change it until you've understood 
 [strukt-generator](https://github.com/pitsolu/strukt-generator)
