@@ -9,3 +9,4 @@ tasker.php
 tpl/
 lib/App/Loader.php
 modules/
+test.php
