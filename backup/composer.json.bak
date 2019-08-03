@@ -1,0 +1,33 @@
+{
+
+    "name": "strukt/strukt",
+    "description": "Strukt Project",
+    "license": "MIT",
+    "type":"project",
+    "authors": [
+
+        {
+            "name": "Moderator",
+            "email": "pitsolu@gmail.com"
+        }
+    ],
+    "require": {
+
+        "php": "^7.1.3",
+        "strukt/framework": "dev-master"
+    },
+    "minimum-stability":"dev",
+    "prefer-stable":true,
+    "autoload": {
+
+        "psr-0": { "Strukt\\": "src/"}
+    },
+    "scripts": {
+
+        "post-create-project-cmd": [
+
+            "composer exec static",
+            "composer exec config-basic"
+        ]
+    }
+}

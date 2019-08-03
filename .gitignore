@@ -10,3 +10,9 @@ tpl/
 lib/App/Loader.php
 modules/
 test.php
+database/
+lib/App/Command/
+lib/App/Contract/
+lib/App/Provider/
+lib/App/Service/
+logs/

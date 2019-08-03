@@ -52,7 +52,6 @@ Env::set("rel_loader_sgf","tpl/sgf/lib/App/Loader.sgf");
 
 /** //strukt-do
 Env::set("is_dev", true);
-Env::set("root_dir", getcwd());
 Env::set("rel_db_ini", "cfg/db.ini");
 Env::set("migration_sgf","tpl/sgf/database/schema/Schema/Migration/Version_.sgf");
 Env::set("migration_home","database/schema/Schema/Migration");
@@ -78,7 +77,7 @@ $kernel->providers(array(
 	LoggerProvider::class,
 	EntityManagerProvider::class,
 	EntityManagerAdapterProvider::class,
-	NormalizerProvider::class
+	NormalizerProvider::class,
 	**/ //strukt-do//
 	RouterProvider::class,
 	AnnotationProvider::class
