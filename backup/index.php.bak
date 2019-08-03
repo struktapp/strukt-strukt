@@ -24,27 +24,27 @@ use App\Provider\EntityManager as EntityManagerProvider;
 use App\Provider\EntityManagerAdapter as EntityManagerAdapterProvider;
 use App\Provider\Normalizer as NormalizerProvider;
 use Cobaia\Doctrine\MonologSQLLogger;
-**/ //strukt-do
+**/ //strukt-do//
 
 /** //strukt-audit
 use App\Middleware\Audit as AuditMiddleware;
-**/ //strukt-audit
+**/ //strukt-audit//
 
 use Strukt\Event\Event;
 use Strukt\Env;
 
 Env::set("root_dir", getcwd());
+Env::set("rel_app_ini", "/cfg/app.ini");
 Env::set("rel_static_dir", "/public/static");
 Env::set("rel_mod_ini", "/cfg/module.ini");
 Env::set("is_dev", true);
 
 /** //strukt-do
 Env::set("rel_appsrc_dir", "app/src/");
-Env::set("rel_app_ini", "/cfg/app.ini");
 Env::set("rel_db_ini", "cfg/db.ini");
 Env::set("logger_name", "Strukt Logger");
 Env::set("logger_file", "logs/app.log");
-**/ //strukt-do
+**/ //strukt-do//
 
 $kernel = new Strukt\Router\Kernel(Request::createFromGlobals());
 $kernel->inject("app.dep.author", function(){
@@ -64,7 +64,7 @@ $kernel->inject("app.dep.logger.sqllogger", function(){
 
 	return new MonologSQLLogger(null, null, __DIR__ . '/logs/');
 });
-**/ //strukt-do
+**/ //strukt-do//
 
 /** //strukt-roles
 $kernel->inject("app.dep.author", function(Session $session){
@@ -79,9 +79,9 @@ $kernel->inject("app.dep.author", function(Session $session){
 
 	return array();
 });
-**/ //strukt-roles
+**/ //strukt-roles//
 
-/**/ //strukt-strukt
+/**/ //strukt-strukt//
 $kernel->inject("app.dep.authentic", function(Session $session){
 
 	$user = new Strukt\User();
@@ -89,7 +89,7 @@ $kernel->inject("app.dep.authentic", function(Session $session){
 
 	return $user;
 });
-/**/ //strukt-strukt
+/**/ //strukt-strukt//
 
 $kernel->inject("app.dep.session", function(){
 
@@ -107,7 +107,7 @@ $kernel->providers(array(
 	EntityManagerProvider::class,
 	EntityManagerAdapterProvider::class,
 	NormalizerProvider::class
-	**/ //strukt-do
+	**/ //strukt-do//
 ));
 
 $kernel->middlewares(array(
@@ -119,7 +119,7 @@ $kernel->middlewares(array(
 	StaticFileFinder::class,
 	/** //strukt-audit
 	AuditMiddleware::class,
-	**/ //strukt-audit
+	**/ //strukt-audit//
 	RouterMiddleware::class
 ));
 
