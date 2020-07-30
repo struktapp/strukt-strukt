@@ -16,3 +16,6 @@ lib/App/Contract/
 lib/App/Provider/
 lib/App/Service/
 logs/
+bootstrap.php
+console
+index.php
