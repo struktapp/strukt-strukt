@@ -8,7 +8,7 @@ trait CoreTraits{
 
 	public function core(){
 
-		return Registry::getInstance();
+		return Registry::getSingleton();
 	}
 
 	protected function get($alias, Array $args = null){

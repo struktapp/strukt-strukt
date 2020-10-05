@@ -13,9 +13,11 @@ lib/App/Contract/AbstractSeeder.php
 lib/App/Contract/AbstractTestCase.php
 lib/App/Contract/Entity.php
 lib/App/Command
+lib/App/Provider/SchemaMeta*
 lib/App/Provider/EntityManager.php
 lib/App/Provider/EntityManagerAdapter.php
 lib/App/Provider/Normalizer.php
+lib/App/Package
 lib/App/Service
 lib/App/Loader.php
 test.php
