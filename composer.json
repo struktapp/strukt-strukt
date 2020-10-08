@@ -14,9 +14,7 @@
     "require": {
 
         "php": "^7.1.3",
-        "strukt/framework": "dev-master",
-        "strukt/pkg-do": "dev-master",
-        "doctrine/orm": "2.7.3"
+        "strukt/framework": "dev-master"
     },
     "minimum-stability":"dev",
     "prefer-stable":true,

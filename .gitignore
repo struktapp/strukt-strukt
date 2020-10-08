@@ -26,3 +26,4 @@ logs/
 bootstrap.php
 console
 index.php
+.env
