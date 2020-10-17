@@ -27,3 +27,4 @@ bootstrap.php
 console
 index.php
 .env
+lib/App/Kernel.php
