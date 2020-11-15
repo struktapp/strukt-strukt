@@ -9,7 +9,7 @@ Strukt
 ### Getting started
 
 ```sh
-composer create-project "strukt/strukt:dev-master" --prefer-dist
+composer create-project "strukt/strukt:1.0.0-alpha" --prefer-dist
 ```
 
 Listing console commands:
