@@ -21,7 +21,7 @@ Listing console commands:
 ### Generate an application
 
 ```sh
-./console generate:app payroll
+./console make:app payroll
 ```
 
 The file structure generated should look as below:
@@ -50,7 +50,7 @@ There is a default module i.e `AuthModule` when you generate an application. Fol
 When an application or module is created/generated they are loaded by running the command below, otherwise strukt won't detect them:
 
 ```sh
-./console generate:loader
+./console make:loader
 ```
 
 The above command will create a `App/Loader.php` in the `lib/` folder at the root of your project. This file should NEVER be edited because everything will be overwritten once the above command is run. 
@@ -60,13 +60,13 @@ The above command will create a `App/Loader.php` in the `lib/` folder at the roo
 Command syntax for generating a module:
 
 ```sh
-./console generate:module <app_name> <module_name> <module_alias>
+./console make:module <app_name> <module_name> <module_alias>
 ```
 
 Example command:
 
 ```sh
-./console generate:module payroll human_resource hr
+./console make:module payroll human_resource hr
 ```
 
 Now the file structure should look as below:
@@ -79,7 +79,7 @@ app/
         └── HumanResourceModule
 ```
 
-Remember to run the `generate:loader` command to load the module.
+Remember to run the `make:loader` command to load the module.
 
 ### Drop into shell
 
@@ -97,7 +97,7 @@ Variables: $core, $registry
 
 ### Things to note
 
-The `generate:router` and `generate:module` commands will not appear on cli console until you run `generate:app` and `generate:loader` commands firstly and respectively.
+The `make:router` and `make:module` commands will not appear on cli console until you run `make:app` and `make:loader` commands firstly and respectively.
 
 **IMPORTANT**: The folder `tpl/` in the root of the project contains `sgf/` folder that has class template files used to generate the application its modules and migrations. Ensure to not change it until you've understood 
 [strukt-generator](https://github.com/pitsolu/strukt-generator)
