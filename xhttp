@@ -6,7 +6,6 @@ use Strukt\Framework\App as FrameworkApp;
 use Strukt\Framework\Configuration;
 
 require "bootstrap.php";
-$repo = require "cfg/repo.php";
 
 $methods = array(
 
@@ -87,7 +86,7 @@ Env::withFile();
 Env::set("root_dir", getcwd());
 
 FrameworkApp::create("App:Cli");
-FrameworkApp::mayBeRepo($repo);
+FrameworkApp::mayBeRepo();
 
 App\Middleware\XSession::create(array(
 
@@ -100,6 +99,7 @@ App\Middleware\XSession::create(array(
 ));
 
 $config = new Configuration();
+$config->addIgnore("@require");
 $middlewares = $config->get("middlewares");
 $middlewares = array_merge([App\Middleware\XSession::class], $middlewares);
 $config->set("middlewares", $middlewares);
@@ -107,5 +107,6 @@ $config->set("middlewares", $middlewares);
 $kernel = new App\Kernel($config);
 $runner = $kernel->getApp()->run();
 $runner = $runner->init();
+// $response = $kernel->getRouter()->debug();
 $response = $kernel->getRouter()->run();
 exit(sprintf("%s\n", $response->getContent()));
