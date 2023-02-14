@@ -18,7 +18,7 @@ Listing console commands:
 ./console -l
 ```
 
-### Generate an application
+### Generate Application
 
 ```sh
 ./console make:app payroll
@@ -55,7 +55,7 @@ When an application or module is created/generated they are loaded by running th
 
 The above command will create a `App/Loader.php` in the `lib/` folder at the root of your project. This file should NEVER be edited because everything will be overwritten once the above command is run. 
 
-### Generate a module
+### Generate Module
 
 Command syntax for generating a module:
 
@@ -81,7 +81,7 @@ app/
 
 Remember to run the `make:loader` command to load the module.
 
-### Drop into shell
+### Execute Shell
 
 `strukt-strukt` uses [psysh](https://github.com/bobthecow/psysh).
 
@@ -95,7 +95,43 @@ Variables: $core, $registry
 => Payroll\User {#...
 ```
 
-### Things to note
+## Cli
+
+View `middlewares` and `providers`
+
+View `console` middlewares.
+
+```sh
+./console cli:ls middlewares
+```
+
+View `index.php` middlewares
+
+```sh
+./console cli:ls middlewares --idx
+```
+
+You can also view `providers` by replacing `middlewares`
+
+### Cli Utility
+
+Enable and disable `commands` , `middlewares` and `providers`
+
+Example:
+
+```sh
+./console cli:util enable commands pub-make
+```
+
+### Run Application
+
+```sh
+./console app:exec
+```
+
+Uses `.env` `server_{var}` to run application.
+
+## Notes
 
 The `make:router` and `make:module` commands will not appear on cli console until you run `make:app` and `make:loader` commands firstly and respectively.
 
