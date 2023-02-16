@@ -6,7 +6,7 @@ vendor/
 php_errors.log
 bin/
 tasker.php
-tpl/
+.tpl/
 modules/
 test.php
 database/

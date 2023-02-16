@@ -9,7 +9,7 @@ Strukt
 ### Getting started
 
 ```sh
-composer create-project "strukt/strukt:1.1.5-alpha" --prefer-dist
+composer create-project strukt/strukt:1.1.5-alpha --prefer-dist
 ```
 
 Listing console commands:
@@ -21,7 +21,7 @@ Listing console commands:
 ### Generate Application
 
 ```sh
-./console make:app payroll
+./console app:make payroll
 ```
 
 The file structure generated should look as below:
@@ -50,7 +50,7 @@ There is a default module i.e `AuthModule` when you generate an application. Fol
 When an application or module is created/generated they are loaded by running the command below, otherwise strukt won't detect them:
 
 ```sh
-./console make:loader
+./console app:reload
 ```
 
 The above command will create a `App/Loader.php` in the `lib/` folder at the root of your project. This file should NEVER be edited because everything will be overwritten once the above command is run. 
@@ -79,7 +79,7 @@ app/
         └── HumanResourceModule
 ```
 
-Remember to run the `make:loader` command to load the module.
+Remember to run the `make:reload` command to load the module.
 
 ### Execute Shell
 
@@ -88,7 +88,7 @@ Remember to run the `make:loader` command to load the module.
 ```sh
 $ ./console shell:exec
 >>> ls
-Variables: $core, $registry
+Variables: $core, $reg
 >>> $core->get("au.ctr.User")->getAll()
 => "AuthModule\Controller\User::getAll Not Yet Implemented!"
 >>> $core->get("User")
@@ -133,9 +133,9 @@ Uses `.env` `server_{var}` to run application.
 
 ## Notes
 
-The `make:router` and `make:module` commands will not appear on cli console until you run `make:app` and `make:loader` commands firstly and respectively.
+The `make:router` and `make:module` commands will not appear on cli console until you run `app:make` and `app:reload` commands firstly and respectively.
 
-**IMPORTANT**: The folder `tpl/` in the root of the project contains `sgf/` folder that has class template files used to generate the application its modules and migrations. Ensure to not change it until you've understood 
+**IMPORTANT**: The folder `.tpl/` in the root of the project contains `sgf/` folder that has class template files used to generate the application its modules and migrations. Ensure to not change it until you've understood 
 [strukt-generator](https://github.com/pitsolu/strukt-generator)
 
 Have a good one!
