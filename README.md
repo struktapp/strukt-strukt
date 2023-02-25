@@ -102,13 +102,13 @@ View `middlewares` and `providers`
 View `console` middlewares.
 
 ```sh
-./console cli:ls middlewares
+./console sys:ls middlewares
 ```
 
 View `index.php` middlewares
 
 ```sh
-./console cli:ls middlewares --idx
+./console sys:ls middlewares --idx
 ```
 
 You can also view `providers` by replacing `middlewares`
@@ -120,7 +120,7 @@ Enable and disable `commands` , `middlewares` and `providers`
 Example:
 
 ```sh
-./console cli:util enable commands pub-make
+./console sys:util enable commands pub-make
 ```
 
 ### Run Application
