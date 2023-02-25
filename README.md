@@ -15,13 +15,13 @@ composer create-project strukt/strukt:1.1.5-alpha --prefer-dist
 Listing console commands:
 
 ```sh
-./console -l
+./xcli -l
 ```
 
 ### Generate Application
 
 ```sh
-./console app:make payroll
+./xcli app:make payroll
 ```
 
 The file structure generated should look as below:
@@ -50,7 +50,7 @@ There is a default module i.e `AuthModule` when you generate an application. Fol
 When an application or module is created/generated they are loaded by running the command below, otherwise strukt won't detect them:
 
 ```sh
-./console app:reload
+./xcli app:reload
 ```
 
 The above command will create a `App/Loader.php` in the `lib/` folder at the root of your project. This file should NEVER be edited because everything will be overwritten once the above command is run. 
@@ -60,13 +60,13 @@ The above command will create a `App/Loader.php` in the `lib/` folder at the roo
 Command syntax for generating a module:
 
 ```sh
-./console make:module <app_name> <module_name> <module_alias>
+./xcli make:module <app_name> <module_name> <module_alias>
 ```
 
 Example command:
 
 ```sh
-./console make:module payroll human_resource hr
+./xcli make:module payroll human_resource hr
 ```
 
 Now the file structure should look as below:
@@ -86,7 +86,7 @@ Remember to run the `make:reload` command to load the module.
 `strukt-strukt` uses [psysh](https://github.com/bobthecow/psysh).
 
 ```sh
-$ ./console shell:exec
+$ ./xcli shell:exec
 >>> ls
 Variables: $core, $reg
 >>> $core->get("au.ctr.User")->getAll()
@@ -102,13 +102,13 @@ View `middlewares` and `providers`
 View `console` middlewares.
 
 ```sh
-./console sys:ls middlewares
+./xcli sys:ls middlewares
 ```
 
 View `index.php` middlewares
 
 ```sh
-./console sys:ls middlewares --idx
+./xcli sys:ls middlewares --idx
 ```
 
 You can also view `providers` by replacing `middlewares`
@@ -120,13 +120,13 @@ Enable and disable `commands` , `middlewares` and `providers`
 Example:
 
 ```sh
-./console sys:util enable commands pub-make
+./xcli sys:util enable commands pub-make
 ```
 
 ### Run Application
 
 ```sh
-./console app:exec
+./xcli app:exec
 ```
 
 Uses `.env` `server_{var}` to run application.
