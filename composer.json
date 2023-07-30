@@ -14,7 +14,7 @@
     "require": {
 
         "php": "^7.4",
-        "strukt/framework": "v1.1.5-alpha"
+        "strukt/framework": "v1.1.6-alpha"
     },
     "minimum-stability":"dev",
     "prefer-stable":true,
