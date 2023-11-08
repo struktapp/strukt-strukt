@@ -20,7 +20,7 @@
     "prefer-stable":true,
     "autoload": {
 
-        "psr-0": { "Strukt\\": "src/"}
+        "psr-0": { "Strukt\\": "src/", "App\\":"lib/"}
     },
     "scripts": {
 
