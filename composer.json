@@ -29,5 +29,6 @@
             "composer exec static",
             "composer exec strukt-cfg"
 	 ]
-    }
+    },
+    "bin":["xcli", "xhttp"]
 }
