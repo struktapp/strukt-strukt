@@ -16,3 +16,5 @@ console
 index.php
 .env
 lib
+.cache
+xcli
