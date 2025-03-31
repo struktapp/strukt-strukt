@@ -9,7 +9,7 @@ Strukt
 ### Getting started
 
 ```sh
-composer create-project strukt/strukt:1.1.5-alpha --prefer-dist
+composer create-project strukt/strukt:1.1.7-alpha --prefer-dist
 ```
 
 Listing console commands:
@@ -26,7 +26,7 @@ Listing console commands:
 
 The file structure generated should look as below:
 
-```
+```sh
 app
 └── src
     └── Payroll
@@ -41,19 +41,19 @@ app
         │   │   └── Index.php
         │   └── Tests
         │       └── UserTest.php
-        └── User.php
+        └── User.php # Models are stored in the root of your app (i.e payroll)
 
 ```
 
-There is a default module i.e `AuthModule` when you generate an application. Folders generate in a module can be changed in `cfg/module.ini` this also indicates part of alias used to access classes/objects. You'll also find a config file `cfg/app.ini` that holds the active applications name.
+There is a default module i.e `AuthModule` when you generate an application. Folders generated in a module (facets) can be changed in `cfg/module.ini` this also indicates part of alias used to access classes/objects. You'll also find a config file `cfg/app.ini` that holds the active application name.
 
-When an application or module is created/generated they are loaded by running the command below, otherwise strukt won't detect them:
+When an application or module is created/generated it is loaded by running the command below, otherwise strukt won't detect it:
 
 ```sh
 ./xcli app:reload
 ```
 
-The above command will create a `App/Loader.php` in the `lib/` folder at the root of your project. This file should NEVER be edited because everything will be overwritten once the above command is run. 
+The above command will create a `App/Loader.php` in the `lib/` folder at the root of your project. This file should NEVER be edited because everything will be overwritten once the above command is rerun. 
 
 ### Generate Module
 
@@ -71,7 +71,7 @@ Example command:
 
 Now the file structure should look as below:
 
-```
+```sh
 app/
 └── src
     └── Payroll
@@ -79,16 +79,18 @@ app/
         └── HumanResourceModule
 ```
 
-Remember to run the `make:reload` command to load the module.
+Remember to run the `app:reload` command to load the module.
 
 ### Execute Shell
 
-`strukt-strukt` uses [psysh](https://github.com/bobthecow/psysh).
+`strukt-strukt` uses [Psysh](https://github.com/bobthecow/psysh).
+
+To drop into shell:
 
 ```sh
 $ ./xcli shell:exec
 >>> ls
-Variables: $core, $reg
+Variables: $core
 >>> $core->get("au.ctr.User")->getAll()
 => "AuthModule\Controller\User::getAll Not Yet Implemented!"
 >>> $core->get("User")
@@ -97,18 +99,16 @@ Variables: $core, $reg
 
 ## Cli
 
-View `middlewares` and `providers`
-
-View `console` middlewares.
+View `providers` and `middlewares`
 
 ```sh
-./xcli sys:ls middlewares
+./xcli sys:ls middlewares # view for console
 ```
 
 View `index.php` middlewares
 
 ```sh
-./xcli sys:ls middlewares --idx
+./xcli sys:ls middlewares --idx # view for index.php
 ```
 
 You can also view `providers` by replacing `middlewares`
@@ -129,13 +129,12 @@ Example:
 ./xcli app:exec
 ```
 
-Uses `.env` `server_{var}` to run application.
+Uses `.env` `server_{var}` variables to run application.
 
 ## Notes
 
-The `make:router` and `make:module` commands will not appear on cli console until you run `app:make` and `app:reload` commands firstly and respectively.
+The `make:router` and `make:module` commands will not work on cli console until you run `app:make` and `app:reload` commands are run respectively.
 
-**IMPORTANT**: The folder `.tpl/` in the root of the project contains `sgf/` folder that has class template files used to generate the application its modules and migrations. Ensure to not change it until you've understood 
-[strukt-generator](https://github.com/pitsolu/strukt-generator)
+**IMPORTANT**: The folder `.tpl/` in the root of the project contains `sgf/` folder that contains class template files used to generate the application modules and migrations. Ensure to **NOT** change it until you've understood [strukt-generator](https://github.com/pitsolu/strukt-generator)
 
 Have a good one!
