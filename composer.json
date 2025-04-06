@@ -27,7 +27,7 @@
         "post-create-project-cmd": [
 
             "composer exec static",
-            "composer exec strukt-cfg"
+            "composer exec strukt"
 	 ]
     },
     "bin":["xcli", "xhttp"]
