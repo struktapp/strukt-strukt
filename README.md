@@ -89,12 +89,16 @@ To drop into shell:
 
 ```sh
 $ ./xcli shell:exec
- ls
-    Variables: $core
- $core->get("au.ctr.User")->getAll()
-    "AuthModule\Controller\User::getAll Not Yet Implemented!"
- $core->get("User")
-    Payroll\User {#...
+> ls
+Variables: $core
+> $core->get("au.ctr.User")
+= Payroll\AuthModule\Controller\User
+
+> $core->get("User")
+= Payroll\User {
+    +username: null,
+    +password: null,
+  }
 ```
 
 ## Cli
@@ -113,7 +117,7 @@ View `index.php` middlewares
 
 You can also view `providers` by replacing `middlewares`
 
-### CLI Utility
+### Cli Utility
 
 Enable and disable `commands` , `middlewares` and `providers`
 
