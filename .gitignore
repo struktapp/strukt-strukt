@@ -1,0 +1,12 @@
+/app/
+/cfg/
+/lib/
+/templates/
+/database/
+/index.php
+/.env
+/.tpl/
+/.cache/
+/php_errors.log
+/composer.lock
+/vendor/

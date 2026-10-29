@@ -1,0 +1,29 @@
+{
+    "name": "strukt/strukt",
+    "description": "Strukt application skeleton.",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": ">=8.2",
+        "strukt/framework": "v1.7.0",
+        "strukt/orm": "v1.0.0"
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "@php vendor/bin/strukt app:make",
+            "@php vendor/bin/strukt app:reload"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "pitsolu",
+            "email": "pitsolu@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "psy/psysh": "^0.12.24"
+    },
+    "version": "1.0.0"
+}

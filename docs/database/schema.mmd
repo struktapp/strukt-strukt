@@ -1,0 +1,43 @@
+%% Web RBAC database (SQLite) — app/src/Web models
+erDiagram
+    users ||--o{ role_user : "granted"
+    roles ||--o{ role_user : "granted to"
+    roles ||--o{ permission_role : "allows"
+    permissions ||--o{ permission_role : "allowed on"
+
+    users {
+        INTEGER id PK
+        TEXT    name
+        TEXT    email UK
+        TEXT    password
+        TEXT    created_at
+        TEXT    updated_at
+    }
+
+    roles {
+        INTEGER id PK
+        TEXT name UK
+        TEXT label "nullable"
+        TEXT created_at
+        TEXT updated_at
+    }
+
+    permissions {
+        INTEGER id PK
+        TEXT name UK
+        TEXT label "nullable"
+        TEXT created_at
+        TEXT updated_at
+    }
+
+    role_user {
+        INTEGER id PK
+        INTEGER user_id FK
+        INTEGER role_id FK
+    }
+
+    permission_role {
+        INTEGER id PK
+        INTEGER permission_id FK
+        INTEGER role_id FK
+    }

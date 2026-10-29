@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Resets the project to its seed state by removing every generated artifact.
+# Tracked files (composer.json, README.md, LICENSE, bin/clear) are untouched.
+
+rm -rf app
+rm -rf cfg
+rm -rf lib
+rm -rf templates
+rm -rf .tpl
+rm -rf .cache
+rm -f index.php
+rm -f .env
+rm -f php_errors.log
