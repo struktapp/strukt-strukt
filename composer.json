@@ -5,7 +5,7 @@
     "license": "MIT",
     "require": {
         "php": ">=8.2",
-        "strukt/framework": "v1.7.0",
+        "strukt/framework": "v1.2.0",
         "strukt/orm": "v1.0.0"
     },
     "scripts": {
@@ -25,5 +25,5 @@
     "require-dev": {
         "psy/psysh": "^0.12.24"
     },
-    "version": "1.7.0"
+    "version": "1.2.0"
 }
